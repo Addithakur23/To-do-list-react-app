@@ -99,7 +99,7 @@ function App() {
                   Save
                 </button>
                 </div>
-                <input type="checkbox" name="Show Finished" id="Show Finished" checked={showFinished} onChange={toggleFinished} />Show Finished
+                <input type="checkbox" name="Show Finished" id="Show Finished" checked={showFinished} onChange={toggleFinished} className='mr-1' />Show Finished
                 <div className='h-[1px] bg-black opacity-15 my-2 w-[85%] mx-auto'></div>
             
             <h2 className='text-2xl font-bold mt-2'>
@@ -112,9 +112,9 @@ function App() {
               return (showFinished || !item.isCompleted) && <div key={item.id} className="todo flex gap-5  w-full mb-3">
           
                 <input type="checkbox" name={item.id} id="checkbox" onChange={handleCheckbox} checked={item.isCompleted} className='' />
-              <div className="flex justify-between md:items-start w-full">
+              <div className="flex justify-between [overflow-wrap:anywhere;] w-full ">
                 <div className={item.isCompleted?"line-through":""} >  {item.todo}</div>
-                <div className="buttons flex justify-between">
+                <div className="buttons flex items-center justify-end ">
                   <button onClick={(e)=>{{handleEdit(e,item.id)}}} className='bg-violet-700  hover:bg-violet-900 p-3 py-1 mx-1 rounded-md text-white font-bold text-sm'><FaEdit /></button>
                 <button onClick={(e)=>{{handleDelete(e,item.id)}}} className='bg-violet-700 hover:bg-violet-900 p-3 py-1 mx-1 rounded-md text-white font-bold text-sm'><AiFillDelete /></button>
                 </div>
